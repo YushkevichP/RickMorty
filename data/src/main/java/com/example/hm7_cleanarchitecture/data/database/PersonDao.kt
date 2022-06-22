@@ -1,9 +1,6 @@
 package com.example.hm7_cleanarchitecture.data.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.hm7_cleanarchitecture.data.model.PersonDTO
 import com.example.hm7_cleanarchitecture.data.model.PersonEntity
 import com.example.hm7_cleanarchitecture.domain.model.Person
@@ -18,4 +15,16 @@ internal interface PersonDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPersons(list: List<PersonEntity>)
 
+    //todo with boolean   --- ищем у кого стоит тру
+    @Query("SELECT * FROM personentity WHERE (:isFavourite) LIKE isFavourite")
+    suspend fun getFavourite(isFavourite: Boolean = true): List<PersonEntity>
+
+    //should make isFavourite - true
+    @Update
+    fun addToFavourite(person: PersonEntity)
+
+
+    //should make isFavourite - false
+    @Update
+    fun removeFromFavourite(person: PersonEntity)
 }

@@ -20,4 +20,7 @@ internal data class PersonEntity(
 
     @ColumnInfo(name = "page")
     val page: Int,
+
+    @ColumnInfo(name = "isFavourite")
+    val isFavourite : Boolean = false
 )

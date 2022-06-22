@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.shareIn
 
 class FavouriteViewModel(
-    private val getFavouriteUseCase:GetFavouriteUseCase
-    ):ViewModel() {
+    private val getFavouriteUseCase: GetFavouriteUseCase,
+) : ViewModel() {
 
     suspend fun getDataFlow() = getFavouriteUseCase()
         .shareIn(

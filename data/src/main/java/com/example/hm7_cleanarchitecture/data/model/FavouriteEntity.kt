@@ -4,18 +4,4 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
-internal data class FavouriteEntity(
 
-    @PrimaryKey
-    val id: Int,
-
-    @ColumnInfo(name = "name")
-    val name: String,
-
-    @ColumnInfo(name = "image")
-    val imageUrl: String,
-
-    @ColumnInfo(name = "page")
-    val page: Int,
-)
