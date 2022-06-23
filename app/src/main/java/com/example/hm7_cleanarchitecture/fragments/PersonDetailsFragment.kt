@@ -70,9 +70,9 @@ class PersonDetailsFragment : Fragment() {
                             with(binding) {
 
                                 imageUserFragment.load(it.data.avatarApiDetails)
-                                personGender.text = it.data.gender
-                                personName.text = it.data.name
-                                personStatus.text = it.data.status
+                                personGender.text = "Gender: "+ it.data.gender
+                                personName.text =   it.data.name
+                                personStatus.text ="Status: "+ it.data.status
                             }
                         }
                         is LceState.Error -> {

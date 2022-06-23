@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_list"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/MediumGoldenrod">
+    android:layout_height="match_parent">
 
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
@@ -23,11 +22,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gold"
             android:src="?attr/homeAsUpIndicator"
-            app:navigationIcon="@android:drawable/ic_delete"
-            app:title="Rick and Morty"
-            app:titleTextColor="@color/white" />
+            app:title="Rick and Morty" />
 
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

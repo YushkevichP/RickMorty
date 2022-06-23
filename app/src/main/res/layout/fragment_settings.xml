@@ -1,38 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/settings">
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        style="@style/Widget.MaterialComponents.AppBarLayout.Primary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RadioButton
-            android:text="Hello world"
-            android:id="@+id/radio_one"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_weight="1" />
+            app:title="@string/app_name" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="?android:attr/dividerHorizontal"
+        android:showDividers="middle">
 
         <RadioButton
-            android:text="Hello world"
-            android:id="@+id/radio_two"
+            android:id="@+id/radio_button_light"
+            style="@style/RadioButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_weight="1" />
-        <RadioButton
+            android:text="Switch to the light version" />
 
-            android:text="Hello world"
-            android:id="@+id/radio_three"
+        <RadioButton
+            android:id="@+id/radio_button_dark"
+            style="@style/RadioButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_weight="1" />
+            android:text="Switch to the dark version" />
+
+        <RadioButton
+            android:id="@+id/radio_button_system"
+            style="@style/RadioButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Switch to the default version" />
+
     </RadioGroup>
 
 </LinearLayout>

@@ -20,10 +20,7 @@ class PersonViewHolder(
     fun bind(person: Person) {
 
         with(binding) {
-            imageButton.setOnClickListener {
 
-                Log.d("TAG", "OLALALA")
-            }
             imageView.load(person.imageUrl) {
                 scale(Scale.FILL)
                 size(ViewSizeResolver(root))
