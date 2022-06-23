@@ -12,6 +12,7 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hm7_cleanarchitecture.ItemAdapter
 import com.example.hm7_cleanarchitecture.R
@@ -59,6 +60,7 @@ class SearchFragment : Fragment() {
 
         networkChecker(view)
         initRecycler()
+        binding.toolbar.setupWithNavController(findNavController()) // back_arrow
 
         with(binding) {
             toolbar.searchQueryFlow
@@ -75,7 +77,7 @@ class SearchFragment : Fragment() {
                 }
                 binding.progressCircular.isVisible = false
                 personAdapter.submitList(list)
-
+                binding.swipeLayout.isRefreshing = false
             }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         setInsets()
@@ -88,7 +90,7 @@ class SearchFragment : Fragment() {
             recyclerView.adapter = personAdapter
             recyclerView.addSpaceDecoration(resources.getDimensionPixelSize(R.dimen.bottom_space))
             swipeLayout.setOnRefreshListener {
-                //  viewModel.onRefresh()
+                  viewModel.onRefresh()
             }
             recyclerView.addPaginationScrollFlow(layoutManager, 6)
                 .onEach {
@@ -108,7 +110,6 @@ class SearchFragment : Fragment() {
             }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -126,101 +127,3 @@ class SearchFragment : Fragment() {
     }
 
 }
-
-
-//with(binding) {
-//
-//    toolbar.searchQueryFlow
-//        .onStart { emit("HELLO") }
-//        .debounce(1000)
-//        .mapLatest {
-//            it //getPersonfrom smt  --- ретрофитовский запрос всунуть асинхронный
-//        }.onEach {
-//            // сюда самбитить лист.
-//            Snackbar.make(view, it, Snackbar.LENGTH_LONG).show()
-//        }.launchIn(viewLifecycleOwner.lifecycleScope)
-//}
-
-//
-//class SearchFragment : Fragment() {
-//
-//    private var _binding: FragmentSearchBinding? = null
-//    private val binding: FragmentSearchBinding
-//        get() = requireNotNull(_binding) {
-//            "OOPS"
-//        }
-//
-//    private val viewModel by viewModel<SearchViewModel>()
-//
-//    private val personAdapter by lazy(LazyThreadSafetyMode.NONE) {
-//        ItemAdapter(requireContext()) { person ->
-//            findNavController().navigate(
-//                ListFragmentDirections.toDetails(person.id)
-//            )
-//        }
-//    }
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?,
-//    ): View {
-//        return FragmentSearchBinding.inflate(inflater, container, false)
-//            .also { binding ->
-//                _binding = binding
-//            }.root
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        requireContext().networkChangeFlow
-//            .onEach {
-//                when (it) {
-//                    true -> Log.d("check", "Есть конекшн")
-//                    false -> Snackbar.make(view, "Нет сети", Snackbar.LENGTH_LONG).show()
-//                }
-//            }.launchIn(viewLifecycleOwner.lifecycleScope)
-//
-//
-//        with(binding) {
-//            val layoutManager = LinearLayoutManager(requireContext())
-//            recyclerView.layoutManager = layoutManager
-//            recyclerView.adapter = personAdapter
-//            recyclerView.addSpaceDecoration(resources.getDimensionPixelSize(R.dimen.bottom_space))
-//            swipeLayout.setOnRefreshListener {
-//                //  viewModel.onRefresh()
-//            }
-//            recyclerView.addPaginationScrollFlow(layoutManager, 6)
-//                .onEach {
-//                    //    viewModel.onLoadMore()
-//                }
-//                .launchIn(viewLifecycleOwner.lifecycleScope)
-//        }
-//
-//
-//
-////        with(binding) {
-////            toolbar.searchQueryFlow
-////                .onEach {
-////                    viewModel.onQueryChanged(it)
-////                }.launchIn(viewLifecycleOwner.lifecycleScope)
-////        }
-//
-//
-//        viewModel.searchFlow
-//            .onEach {
-//                val list = it.map {
-//                    ItemType.Content(it)
-//                }
-//                personAdapter.submitList(list)
-//            }
-//    }
-//
-//
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
-//    }
-//
-//}

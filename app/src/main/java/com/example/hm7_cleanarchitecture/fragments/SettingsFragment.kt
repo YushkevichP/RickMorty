@@ -47,13 +47,7 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireContext().networkChangeFlow
-            .onEach {
-                when (it) {
-                    true -> Log.d("check", "Есть конекшн")
-                    false -> Snackbar.make(view, "Нет сети", Snackbar.LENGTH_LONG).show()
-                }
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
+        networkChecker(view)
 
         with(binding) {
             when (nightModeService.nightMode) {
@@ -84,6 +78,16 @@ class SettingsFragment : Fragment() {
         }
 
 
+    }
+
+    private fun networkChecker(view: View) {
+        requireContext().networkChangeFlow
+            .onEach {
+                when (it) {
+                    true -> Log.d("check", "Есть конекшн")
+                    false -> Snackbar.make(view, "Нет сети", Snackbar.LENGTH_LONG).show()
+                }
+            }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
     override fun onDestroyView() {

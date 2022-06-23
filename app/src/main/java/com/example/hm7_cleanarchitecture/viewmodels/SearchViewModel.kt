@@ -30,6 +30,10 @@ class SearchViewModel(
         }
     }
 
+    fun onRefresh() {
+       currentPage = 1
+    }
+
 //    fun onLoadMore() {
 //        searchQueryFlow.tryEmit(Unit)
 //    }
