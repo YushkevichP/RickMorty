@@ -6,7 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -93,6 +96,8 @@ class ListFragment : Fragment() {
                 }
                 .launchIn(viewLifecycleOwner.lifecycleScope)
         }
+
+        setInsets()
     }
 
     override fun onDestroyView() {
@@ -100,7 +105,16 @@ class ListFragment : Fragment() {
         _binding = null
     }
 
-    private fun networkChangeFlow(view: View) {
-
+    private fun setInsets() {
+        with(binding) {
+            ViewCompat.setOnApplyWindowInsetsListener(appBar) { _, insets ->
+                appBar.updatePadding(
+                    top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+                )
+                insets
+            }
+        }
     }
+
+
 }

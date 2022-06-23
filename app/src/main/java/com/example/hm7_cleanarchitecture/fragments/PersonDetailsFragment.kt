@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -76,12 +79,10 @@ class PersonDetailsFragment : Fragment() {
                             }
                         }
                         is LceState.Error -> {
-                            //todo можно показать снекбар
-                            Toast.makeText(requireContext(), "$it + OOOOPS", Toast.LENGTH_SHORT)
-                                .show()
+                            Snackbar.make(view, it.toString(), Snackbar.LENGTH_LONG).show()
                         }
                         is LceState.Loading -> {
-
+                            //todo
                         }
                     }
                 }.launchIn(viewLifecycleOwner.lifecycleScope)
@@ -96,6 +97,20 @@ class PersonDetailsFragment : Fragment() {
                         Toast.LENGTH_LONG).show()
                 }
             }.launchIn(viewLifecycleOwner.lifecycleScope)
+
+        setInsets()
+
+    }
+
+    private fun setInsets() {
+        with(binding) {
+            ViewCompat.setOnApplyWindowInsetsListener(appBar) { _, insets ->
+                appBar.updatePadding(
+                    top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+                )
+                insets
+            }
+        }
     }
 
 

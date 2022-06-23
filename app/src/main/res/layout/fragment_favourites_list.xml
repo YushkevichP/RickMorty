@@ -22,7 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="?attr/homeAsUpIndicator"
-            app:title="Rick and Morty" />
+            app:title="Rick and Morty"
+            android:background="?colorPrimary"/>
 
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
