@@ -108,8 +108,7 @@ class PersonDetailsFragment : Fragment() {
                 appBar.updatePadding(
                     top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
                 )
-                insets
-            }
+                WindowInsetsCompat.CONSUMED            }
         }
     }
 

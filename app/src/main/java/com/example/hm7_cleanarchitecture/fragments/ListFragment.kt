@@ -97,7 +97,7 @@ class ListFragment : Fragment() {
                 .launchIn(viewLifecycleOwner.lifecycleScope)
         }
 
-        setInsets()
+      setInsets()
     }
 
     override fun onDestroyView() {
