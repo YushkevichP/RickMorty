@@ -10,5 +10,6 @@ internal val useCaseModule = module {
     factory { GetPersonUseCase(get(), get()) }
     factory { GetCountryUseCase(get()) }
     factory { GetPersonDetailsUseCase(get()) }
+    factory { GetPersonBySearсhUseCase(get()) }
 
 }

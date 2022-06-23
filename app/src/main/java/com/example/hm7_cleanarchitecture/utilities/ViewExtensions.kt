@@ -33,7 +33,8 @@ val Toolbar.searchQueryFlow: Flow<String>
     }
 
 fun EditText.onTextChanged() = callbackFlow {
-    val textWatcher = addTextChangedListener { value -> trySend(value.toString()) }
+    val textWatcher = addTextChangedListener { value ->
+        trySend(value.toString()) }
 
     awaitClose {
         removeTextChangedListener(textWatcher)

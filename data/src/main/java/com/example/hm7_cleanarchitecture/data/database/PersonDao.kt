@@ -15,16 +15,16 @@ internal interface PersonDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPersons(list: List<PersonEntity>)
 
-    //todo with boolean   --- ищем у кого стоит тру
-    @Query("SELECT * FROM personentity WHERE (:isFavourite) LIKE isFavourite")
-    suspend fun getFavourite(isFavourite: Boolean = true): List<PersonEntity>
-
-    //should make isFavourite - true
-    @Update
-    fun addToFavourite(person: PersonEntity)
-
-
-    //should make isFavourite - false
-    @Update
-    fun removeFromFavourite(person: PersonEntity)
+//    //todo with boolean   --- ищем у кого стоит тру
+//    @Query("SELECT * FROM personentity WHERE (:isFavourite) LIKE isFavourite")
+//    suspend fun getFavourite(isFavourite: Boolean = true): List<PersonEntity>
+//
+//    //should make isFavourite - true
+//    @Update
+//    fun addToFavourite(person: PersonEntity)
+//
+//
+//    //should make isFavourite - false
+//    @Update
+//    fun removeFromFavourite(person: PersonEntity)
 }

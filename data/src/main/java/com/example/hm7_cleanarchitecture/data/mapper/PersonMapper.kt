@@ -21,8 +21,8 @@ internal fun PersonDTO.toDomainModel(): Person {
         name = namePerson,
         imageUrl = imageUrl,
         page = page,
-        //по умолчанию?
-        isFavourite = false
+//        //по умолчанию?
+//        isFavourite = false
     )
 }
 
@@ -32,8 +32,7 @@ internal fun PersonEntity.toDomainModel(): Person {
         name = name,
         imageUrl = imageUrl,
         page = page,
-        isFavourite = isFavourite
-
+//        isFavourite = isFavourite
     )
 }
 

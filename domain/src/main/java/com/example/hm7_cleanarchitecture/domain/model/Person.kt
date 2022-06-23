@@ -6,5 +6,4 @@ data class Person(
     val name: String,
     val imageUrl: String,
     val page: Int,
-    val isFavourite: Boolean,
     )

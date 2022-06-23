@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:src="?attr/homeAsUpIndicator"
             app:title="Rick and Morty"
+            app:menu="@menu/menu_search"
             android:background="?colorPrimary"/>
 
 

@@ -25,3 +25,22 @@ internal data class PersonDTO(
     @SerializedName("page")
     val page: Int
 )
+
+internal data class ResponseFromFilter(
+    @SerializedName("results")
+    val results: List<PersonDTOFromFilter>
+)
+
+// серверная сущность
+internal data class PersonDTOFromFilter(
+
+    @SerializedName("id")
+    val id: Int,
+
+    @SerializedName("name")
+    val namePerson: String,
+
+    @SerializedName("image")
+    val imageUrl: String,
+
+)

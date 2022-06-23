@@ -12,7 +12,7 @@ class GetPersonUseCase(
     private val localRepository: PersonLocalRepository,
 ) {
 
-    operator fun invoke(page: Int): Flow<LceState<List<Person>>> =
+   suspend operator fun invoke(page: Int): Flow<LceState<List<Person>>> =
         flow {
             //достаем кеш при первой подгрузке
             if(page == START_PAGE){

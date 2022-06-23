@@ -6,7 +6,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 import com.example.hm7_cleanarchitecture.viewmodels.CountryViewModel
-import com.example.hm7_cleanarchitecture.viewmodels.TestViewModel
+import com.example.hm7_cleanarchitecture.viewmodels.SearchViewModel
 
 val viewModelModule = module {
 
@@ -15,5 +15,6 @@ val viewModelModule = module {
         PersonDetailsViewModel(id, get())
     }
     viewModelOf(::CountryViewModel)
+    viewModelOf(::SearchViewModel)
 
 }

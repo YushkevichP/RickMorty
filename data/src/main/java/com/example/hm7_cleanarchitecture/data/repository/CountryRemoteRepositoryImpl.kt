@@ -11,14 +11,14 @@ internal class CountryRemoteRepositoryImpl(
 
     override suspend fun getCountries() =
         runCatching {
-            countryApi.getCountries()
+           countryApi.getCountries()
                 .map { //it.toDomainModel()
                     Country(
                         name = it.name.common,
                         flag = it.flags.png,
                         latitude = it.latlng[0],
                         longitude = it.latlng[1],
-                       // capital = it.capital.get(0),
+                        // capital = it.capital.get(0),
                         population = it.population
 
                     )
