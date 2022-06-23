@@ -6,36 +6,32 @@ import com.example.hm7_cleanarchitecture.domain.usecase.GetPersonBySearсhUseCas
 import kotlinx.coroutines.flow.*
 
 class SearchViewModel(
-    private val getPersonBySearсhUseCase: GetPersonBySearсhUseCase
+    private val getPersonBySearсhUseCase: GetPersonBySearсhUseCase,
 ) : ViewModel() {
-
+        //todo допилить т.к. из поиска они идут по страница (сделать счетчик)
     private var searchingQuery = ""
-    private var currentPage = 1
     private val searchQueryFlow = MutableStateFlow(searchingQuery)
 
     val dataSearchFlow = searchQueryFlow
         .debounce(1500)
-        .flatMapLatest  {
-            currentPage++
+        .flatMapLatest {
+
             getPersonBySearсhUseCase(searchingQuery)
         }
         .shareIn(viewModelScope, SharingStarted.Eagerly, replay = 1)
 
-    fun searcQueryChanger(newQuery: String){
-        if (newQuery !=""){
+    fun searcQueryChanger(newQuery: String) {
+        if (newQuery != "") {
             searchingQuery = newQuery
         }
-        if (searchQueryFlow.value != searchingQuery && newQuery != ""){
+        if (searchQueryFlow.value != searchingQuery && newQuery != "") {
             searchQueryFlow.value = searchingQuery
         }
     }
 
     fun onRefresh() {
-       currentPage = 1
+        searchQueryFlow.tryEmit("")
     }
 
-//    fun onLoadMore() {
-//        searchQueryFlow.tryEmit(Unit)
-//    }
 }
 

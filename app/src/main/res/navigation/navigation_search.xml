@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_search"
+    app:startDestination="@id/search">
+
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.hm7_cleanarchitecture.fragments.SearchFragment"
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/to_details"
+            app:destination="@id/details"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/details"
+        android:name="com.example.hm7_cleanarchitecture.fragments.PersonDetailsFragment"
+        tools:layout="@layout/fragment_person_details">
+
+        <argument
+            android:name="key_id"
+            app:argType="integer" />
+
+    </fragment>
+
+
+
+</navigation>
+
+
+
+
+
+
+

@@ -3,6 +3,8 @@
     <string name="person_gendor">Пол персонажа: </string>
     <string name="person_name">Имя персонажа: </string>
     <string name="isAlive">Жив или нет: </string>
+    <string name="switch_to_the_light_version">Switch to the light version</string>
+    <string name="switch_to_the_dark_version">Switch to the dark version</string>
 
 
 </resources>

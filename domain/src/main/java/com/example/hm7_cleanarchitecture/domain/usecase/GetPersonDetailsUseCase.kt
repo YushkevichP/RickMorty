@@ -18,7 +18,7 @@ class GetPersonDetailsUseCase(
     suspend operator fun invoke(id: Int): Flow<LceState<PersonDetails>> =
         flow {
 
-            delay(1000)
+           // delay(1000)
             remoteRepository.getPersonDetails(id = id)
                 .fold(
                     onSuccess = {

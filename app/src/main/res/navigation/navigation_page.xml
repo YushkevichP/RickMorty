@@ -8,4 +8,5 @@
     <include app:graph="@navigation/navigation_list"/>
     <include app:graph="@navigation/navigation_map"/>
     <include app:graph="@navigation/navigation_settings"/>
+    <include app:graph="@navigation/navigation_search"/>
 </navigation>

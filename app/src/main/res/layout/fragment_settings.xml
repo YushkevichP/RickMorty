@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/settings">
+    android:id="@+id/settings"
+    android:background="?colorSecondaryVariant">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -33,14 +34,14 @@
             style="@style/RadioButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Switch to the light version" />
+            android:text="@string/switch_to_the_light_version" />
 
         <RadioButton
             android:id="@+id/radio_button_dark"
             style="@style/RadioButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Switch to the dark version" />
+            android:text="@string/switch_to_the_dark_version" />
 
         <RadioButton
             android:id="@+id/radio_button_system"
