@@ -83,9 +83,15 @@ class ListFragment : Fragment() {
 
         with(binding) {
             toolbar.setOnMenuItemClickListener {
-                when(it.itemId){
+                when (it.itemId) {
                     R.id.search_users -> {
-                        findNavController().navigate()
+                        findNavController().navigate(
+                            ListFragmentDirections.toSearchFragment()
+                        )
+                        true
+                    }
+                    else -> {
+                        false
                     }
                 }
             }
@@ -104,7 +110,7 @@ class ListFragment : Fragment() {
                 .launchIn(viewLifecycleOwner.lifecycleScope)
         }
 
-      setInsets()
+        setInsets()
     }
 
     override fun onDestroyView() {
@@ -118,10 +124,8 @@ class ListFragment : Fragment() {
                 appBar.updatePadding(
                     top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
                 )
-                insets
+                WindowInsetsCompat.CONSUMED
             }
         }
     }
-
-
 }
