@@ -14,40 +14,20 @@ class GetPersonBySearсhUseCase(
     private val searchRepository: PersonSearchRepository,
 ) {
 
-    suspend operator fun invoke(name: Int): Flow<LceState<List<Person>>> =
+    suspend operator fun invoke(name: String): Flow<List<Person>> =
         flow {
 
             searchRepository.getPersonBySearch(name = name)
                 .fold(
                     onSuccess = { list ->
-                        emit(LceState.Content(list))
+                        emit(list)
                     },
                     onFailure = {
-                        emit(LceState.Error(it))
+                        emit(emptyList())
                     }
                 )
         }
-
-
 }
 
-
-
-//class GetPersonBySearсhUseCase(
-//    private val searchRepository: PersonSearchRepository,
-//) {
-//    suspend operator fun invoke(name: String): Flow<List<Person>> =
-//        flow {
-//            searchRepository.getPersonBySearch(name)
-//                .fold(
-//                    onSuccess = { list ->
-//                        emit(list)
-//                    },
-//                    onFailure = {
-//                        emit(emptyList())
-//                    }
-//                )
-//        }
-//}
 
 

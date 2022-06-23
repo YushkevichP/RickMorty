@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.WindowCompat
 import com.example.hm7_cleanarchitecture.data.service.NightModeService
 import com.example.hm7_cleanarchitecture.domain.model.NightMode
+import com.example.hm7_cleanarchitecture.fragments.BottomNavFragment
 import com.example.hm7_cleanarchitecture.fragments.SearchFragment
 import org.koin.android.ext.android.inject
 
@@ -31,15 +32,15 @@ class MainActivity : AppCompatActivity() {
 
             }
         )
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.container, SearchFragment())
-            .commit()
-
 //        supportFragmentManager
 //            .beginTransaction()
-//            .replace(R.id.container, BottomNavFragment())
+//            .replace(R.id.container, SearchFragment())
 //            .commit()
+
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, BottomNavFragment())
+            .commit()
 
     }
 

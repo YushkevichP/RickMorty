@@ -1,15 +1,14 @@
 package com.example.hm7_cleanarchitecture.fragments
 
-import android.content.ClipData
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.Toast
-import androidx.appcompat.widget.SearchView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -19,10 +18,8 @@ import com.example.hm7_cleanarchitecture.R
 
 import com.example.hm7_cleanarchitecture.databinding.FragmentSearchBinding
 import com.example.hm7_cleanarchitecture.domain.model.ItemType
-import com.example.hm7_cleanarchitecture.domain.model.LceState
 import com.example.hm7_cleanarchitecture.utilities.networkChangeFlow
 import com.example.hm7_cleanarchitecture.utilities.searchQueryFlow
-import com.example.hm7_cleanarchitecture.viewmodels.ListViewModel
 import com.example.hm7_cleanarchitecture.viewmodels.SearchViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.*
@@ -60,54 +57,55 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireContext().networkChangeFlow
-            .onEach {
-                when (it) {
-                    true -> Log.d("check", "Есть конекшн")
-                    false -> Snackbar.make(view, "Нет сети", Snackbar.LENGTH_LONG).show()
-                }
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
-        requireContext().networkChangeFlow
-            .onEach {
-                when (it) {
-                    true -> Log.d("check", "Есть конекшн")
-                    false -> Snackbar.make(view, "Нет сети", Snackbar.LENGTH_LONG).show()
-                }
-            }.launchIn(viewLifecycleOwner.lifecycleScope)
+        networkChecker(view)
+        initRecycler()
 
-        viewModel.dataFlow
-            .onEach { uiState ->
-                val pageList = if (uiState.persons.isNotEmpty()) {
-                    uiState.persons.map {
-                        ItemType.Content(it)
-                    } + ItemType.Loading
-                } else uiState.persons.map {
+        with(binding) {
+            toolbar.searchQueryFlow
+                .onEach {
+                    Snackbar.make(view, it.toString(), Snackbar.LENGTH_LONG).show()
+                    viewModel.searcQueryChanger(it)
+                }.launchIn(viewLifecycleOwner.lifecycleScope)
+        }
+
+        viewModel.dataSearchFlow
+            .onEach {
+                val list = it.map {
                     ItemType.Content(it)
                 }
-
-                personAdapter.submitList(pageList)
-                binding.progressCircular.isVisible = uiState.persons.isEmpty()
-                binding.swipeLayout.isRefreshing = false
+                binding.progressCircular.isVisible = false
+                personAdapter.submitList(list)
 
             }.launchIn(viewLifecycleOwner.lifecycleScope)
 
+        setInsets()
+    }
+
+    private fun initRecycler() {
         with(binding) {
             val layoutManager = LinearLayoutManager(requireContext())
             recyclerView.layoutManager = layoutManager
             recyclerView.adapter = personAdapter
             recyclerView.addSpaceDecoration(resources.getDimensionPixelSize(R.dimen.bottom_space))
             swipeLayout.setOnRefreshListener {
-                viewModel.onRefresh()
+                //  viewModel.onRefresh()
             }
-
             recyclerView.addPaginationScrollFlow(layoutManager, 6)
                 .onEach {
-                    viewModel.onLoadMore()
+                    // viewModel.onLoadMore()
                 }
                 .launchIn(viewLifecycleOwner.lifecycleScope)
         }
+    }
 
-
+    private fun networkChecker(view: View) {
+        requireContext().networkChangeFlow
+            .onEach {
+                when (it) {
+                    true -> Log.d("check", "Есть конекшн")
+                    false -> Snackbar.make(view, "Нет сети", Snackbar.LENGTH_LONG).show()
+                }
+            }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
 
@@ -116,10 +114,18 @@ class SearchFragment : Fragment() {
         _binding = null
     }
 
+    private fun setInsets() {
+        with(binding) {
+            ViewCompat.setOnApplyWindowInsetsListener(appBar) { _, insets ->
+                appBar.updatePadding(
+                    top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
+                )
+                WindowInsetsCompat.CONSUMED
+            }
+        }
+    }
+
 }
-
-
-
 
 
 //with(binding) {

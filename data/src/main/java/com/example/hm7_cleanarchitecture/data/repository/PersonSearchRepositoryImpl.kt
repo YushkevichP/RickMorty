@@ -19,7 +19,7 @@ internal class PersonSearchRepositoryImpl(
                         name = it.namePerson,
                         id = it.id,
                         imageUrl = it.imageUrl,
-
+                        page = 1
                     )
 
                 }

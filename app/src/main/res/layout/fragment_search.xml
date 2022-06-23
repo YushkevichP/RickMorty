@@ -19,14 +19,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            style="@style/Widget.MaterialComponents.AppBarLayout.Primary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="?attr/homeAsUpIndicator"
-            app:title="Rick and Morty"
-            app:menu="@menu/menu_search"
-            android:background="?colorPrimary"/>
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="List of persons"
+                app:menu="@menu/menu_search"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
 
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

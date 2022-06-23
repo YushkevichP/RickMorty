@@ -11,8 +11,6 @@ internal fun CountryResponse.toDomainModel(): Country {
         latitude = latlng.get(0),
         longitude = latlng.get(1),
         //capital = capital.get(0),
-
-
         )
 }
 

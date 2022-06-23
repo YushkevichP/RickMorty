@@ -21,13 +21,18 @@ internal interface PersonApi {
         @Path("id") id: Int,
     ): PersonDetailsDTO
 
-
-
-
-    @GET("character/?name={name}")
+    @GET("character/")
     suspend fun getPersonBySearch(
-        @Path("name") name: String,
+        @Query("name")
+        name: String,
     ) : ResponseFromFilter
+
+
+//    @GET("character/?name={name}")
+//    suspend fun getPersonBySearch(
+//        @Path("name")
+//        name: String,
+//    ) : ResponseFromFilter
 
 //    @GET("character/?name={name}&status={status}&gender={gender}")
 //    suspend fun getPersonBySearch(

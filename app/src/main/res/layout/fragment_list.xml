@@ -29,7 +29,8 @@
                 style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:title="List of persons" />
+                app:title="List of persons"
+                app:menu="@menu/menu_search"/>
 
         </com.google.android.material.appbar.AppBarLayout>
 
