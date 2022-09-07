@@ -1,10 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs.kotlin' // fot navigation
+    id 'kotlin-kapt' // for room
 }
 
 android {
     compileSdk 32
+
+    buildFeatures {
+        viewBinding true
+    }
 
     defaultConfig {
         applicationId "com.example.hm7_cleanarchitecture"
@@ -13,6 +19,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        manifestPlaceholders = [googleMapKey: googleMapKey]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,6 +40,10 @@ android {
 
 dependencies {
 
+    //зависимость от data and domain
+    implementation(project(":domain"))
+    implementation(project(":data"))
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
@@ -40,4 +51,57 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // for navigation
+    def nav_version = "2.4.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // coil - for downloading images
+    def coil_version = "1.4.0"
+    implementation "io.coil-kt:coil:$coil_version"
+
+
+    //SwipeToRefresh
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //SQlite
+    implementation "androidx.sqlite:sqlite-ktx:2.2.0"
+
+    //retrofit
+    def retrofit_version = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+
+    //Room database
+    def roomVersion = "2.4.1"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"  //выдавало ошибку / нагуглил это
+
+    implementation "androidx.fragment:fragment-ktx:1.4.1"
+
+    //koin
+
+    def koinVersions = "3.2.0"
+    implementation "io.insert-koin:koin-android:$koinVersions"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+
+    //Lifecycle (coroutines?)
+    def coroutinesLifecycleVersion = "2.4.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$coroutinesLifecycleVersion"
+
+//Google Map
+    implementation 'com.google.maps.android:android-maps-utils:1.3.3'
+
+    //Google Map - location
+    implementation "com.google.android.gms:play-services-location:19.0.1"
+
+    //Google Map - maps
+    implementation "com.google.android.gms:play-services-maps:18.0.2"
+
+
 }

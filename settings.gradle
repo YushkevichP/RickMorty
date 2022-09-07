@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "HM7_CleanArchitecture"
 include ':app'
+include ':data'
+include ':domain'
