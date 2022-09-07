@@ -21,9 +21,7 @@ The app currently consists of 5 screens.
 * [Google Maps](https://developers.google.com/maps/documentation/android-sdk/start?hl=ru)
 
 # Structure
-* [Presentation layer]() Fragments, Activities and other classes responsible for UI.
-View. A Fragment instance that doesn't contain any states, data and has no logic, except displaying UI. Informing the ViewModel about user interactions, displaying data and states received from ViewModel.
-ViewModel. A class containing all data and states of View. The ViewModel retains while View is recreating. It doesn't contain any Android SDK code. Loads data using the Use Case. Manage the View with changing a Flow value.
+* [Presentation layer]()
 * [Data layer]()
 * [Domain layer]()
 # Screenshots
