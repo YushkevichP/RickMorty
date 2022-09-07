@@ -1,4 +1,3 @@
-# RickMorty
 # Rick And Morty 
 This application use RickAndMorty open API.
 # Screens
