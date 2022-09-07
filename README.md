@@ -20,9 +20,9 @@ The app currently consists of 5 screens.
 * [Google Maps](https://developers.google.com/maps/documentation/android-sdk/start?hl=ru)
 
 # Structure
-* [Presentation layer]()
-* [Data layer]()
-* [Domain layer]()
+* [Presentation layer](https://github.com/YushkevichP/RickMorty/tree/main/app)
+* [Data layer](https://github.com/YushkevichP/RickMorty/tree/main/data)
+* [Domain layer](https://github.com/YushkevichP/RickMorty/tree/main/domain)
 # Screenshots
 ![List of Characters](https://im.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-00-140_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg) ![Details](https://ie.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-09-719_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg) 
 ![Search](https://im.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-23-675_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg) ![NightMode](https://ie.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-35-317_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg) ![NightMode](https://im.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-46-51-418_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg)
