@@ -25,8 +25,9 @@ The app currently consists of 5 screens.
 * [Data layer]()
 * [Domain layer]()
 # Screenshots
-![List of Characters](https://im.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-00-140_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg) ![Details](https://im.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-09-719_com.example.hm7_cleanarchitectureb369cc3a16fc1c08.jpg) 
-![Search](https://im.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-23-675_com.example.hm7_cleanarchitecture.jpg) ![NightMode](https://ie.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-35-317_com.example.hm7_cleanarchitecture.jpg) ![NightMode](https://ie.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-46-51-418_com.example.hm7_cleanarchitecture.jpg)
+![List of Characters](https://im.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-00-140_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg) ![Details](https://ie.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-09-719_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg) 
+![Search](https://im.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-23-675_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg) ![NightMode](https://ie.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-35-317_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg) ![NightMode](https://im.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-46-51-418_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg)
+![Map](https://ie.wampi.ru/2022/09/07/Screenshot_2022-09-07-15-44-53-787_com.example.hm7_cleanarchitecture-POLZOVATELSKOE.jpg)
 ____
 
 
