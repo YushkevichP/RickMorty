@@ -35,12 +35,5 @@ class ContainerFragment : Fragment() {
                     .navController
             navigationView.setupWithNavController(nestedController)
         }
-
-
-//        with(binding){
-//            val navController = childFragmentManager.findFragmentById(R.id.main_container_view)
-//                    as NavHostFragment
-//            navigationView.setupWithNavController(navController.navController)
-//        }
     }
 }
