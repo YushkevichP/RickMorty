@@ -9,6 +9,7 @@ class NightModeService(context: Context){
 
     var nightMode: NightMode by enumPref(KEY_NIGHT_MODE, NightMode.SYSTEM)
 
+
     private inline fun <reified E : Enum<E>> enumPref(key: String, defaultValue: E) =
         PrefsDelegate(
             sharedPrefs,

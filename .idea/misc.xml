@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.115" />
+        <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/layout/fragment_bottom_navigation.xml" value="0.25" />
-        <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/layout/fragment_custom_map.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/layout/fragment_container.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/layout/fragment_custom_map.xml" value="0.1" />
         <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/layout/fragment_favourites_list.xml" value="0.34479166666666666" />
         <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/layout/fragment_list.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/pavel/HM7_CleanArchitecture/app/src/main/res/layout/fragment_map.xml" value="0.1" />

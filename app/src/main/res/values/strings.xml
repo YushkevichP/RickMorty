@@ -5,6 +5,8 @@
     <string name="isAlive">Жив или нет: </string>
     <string name="switch_to_the_light_version">Switch to the light version</string>
     <string name="switch_to_the_dark_version">Switch to the dark version</string>
+    <string name="ask_for_permission">ask for permission</string>
+    <string name="switch_to_the_default_version">Switch to the default version</string>
 
 
 </resources>

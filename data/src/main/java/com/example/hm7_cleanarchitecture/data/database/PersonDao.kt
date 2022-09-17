@@ -15,7 +15,7 @@ internal interface PersonDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPersons(list: List<PersonEntity>)
 
-//    //todo with boolean   --- ищем у кого стоит тру
+//    //todo допилить добавление в закладки
 //    @Query("SELECT * FROM personentity WHERE (:isFavourite) LIKE isFavourite")
 //    suspend fun getFavourite(isFavourite: Boolean = true): List<PersonEntity>
 //

@@ -7,6 +7,8 @@ import retrofit2.http.Path
 internal interface CountryApi {
 
         //получаем список всех стран
+
+
         @GET("all")
         suspend fun getCountries(): List<CountryResponse>
 

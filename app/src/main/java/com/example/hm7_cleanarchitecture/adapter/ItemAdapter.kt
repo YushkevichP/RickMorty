@@ -20,7 +20,7 @@ class ItemAdapter(
     private val onUserClicked: (Person) -> Unit,
 ) : ListAdapter<ItemType<Person>, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
 
-    val layoutInflater = LayoutInflater.from(context)
+    val layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
