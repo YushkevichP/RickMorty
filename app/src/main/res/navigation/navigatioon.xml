@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigatioon"
-    app:startDestination="@id/bottom_nav">
+    app:startDestination="@id/container_fragment">
 
     <fragment
-        android:id="@+id/bottom_nav"
-        android:name="com.example.hm7_cleanarchitecture.fragments.BottomNavFragment"
-        tools:layout="@layout/fragment_bottom_navigation" />
+        android:id="@+id/container_fragment"
+        android:name="com.example.hm7_cleanarchitecture.fragments.ContainerFragment"
+        tools:layout="@layout/fragment_container" />
 
 </navigation>

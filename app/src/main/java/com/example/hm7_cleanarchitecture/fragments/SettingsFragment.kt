@@ -5,14 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.ui.setupWithNavController
 import com.example.hm7_cleanarchitecture.data.service.NightModeService
 import com.example.hm7_cleanarchitecture.databinding.FragmentSettingsBinding
 import com.example.hm7_cleanarchitecture.domain.model.NightMode
@@ -22,7 +20,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.koin.android.ext.android.inject
 
-//todo
+
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
@@ -74,10 +72,7 @@ class SettingsFragment : Fragment() {
                 )
                 WindowInsetsCompat.CONSUMED
             }
-
         }
-
-
     }
 
     private fun networkChecker(view: View) {

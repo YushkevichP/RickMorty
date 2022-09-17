@@ -1,5 +1,6 @@
 package com.example.hm7_cleanarchitecture.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -22,7 +22,6 @@ import com.example.hm7_cleanarchitecture.utilities.networkChangeFlow
 import com.example.hm7_cleanarchitecture.viewmodels.PersonDetailsViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -51,6 +50,7 @@ class PersonDetailsFragment : Fragment() {
             .root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -71,7 +71,6 @@ class PersonDetailsFragment : Fragment() {
                     when (it) {
                         is LceState.Content -> {
                             with(binding) {
-
                                 imageUserFragment.load(it.data.avatarApiDetails)
                                 personGender.text = "Gender: "+ it.data.gender
                                 personName.text =   it.data.name
@@ -99,7 +98,6 @@ class PersonDetailsFragment : Fragment() {
             }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         setInsets()
-
     }
 
     private fun setInsets() {
@@ -112,23 +110,9 @@ class PersonDetailsFragment : Fragment() {
         }
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
 
-
-// без лце
-//        viewLifecycleOwner.lifecycleScope.launch {
-//            viewModel.getdataFlow()
-//                .onEach {
-//                    with(binding) {
-//                        imageUserFragment.load(it.avatarApiDetails)
-//                        personGender.text = it.gender
-//                        personName.text = it.name
-//                        personStatus.text = it.status
-//                    }
-//                }.launchIn(viewLifecycleOwner.lifecycleScope)
-//        }

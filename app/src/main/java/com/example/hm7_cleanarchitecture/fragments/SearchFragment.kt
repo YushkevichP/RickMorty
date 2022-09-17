@@ -65,7 +65,7 @@ class SearchFragment : Fragment() {
         with(binding) {
             toolbar.searchQueryFlow
                 .onEach {
-                    Snackbar.make(view, it.toString(), Snackbar.LENGTH_LONG).show()
+                  //  Snackbar.make(view, it, Snackbar.LENGTH_LONG).show()
                     viewModel.searcQueryChanger(it)
                 }.launchIn(viewLifecycleOwner.lifecycleScope)
         }

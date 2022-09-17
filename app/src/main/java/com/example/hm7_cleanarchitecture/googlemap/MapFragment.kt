@@ -15,6 +15,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -138,6 +139,7 @@ class MapFragment : Fragment() {
 
         binding.mapView.onCreate(savedInstanceState)
         setInsets(view)
+        //setInsetsFotBar()
     }
 
     override fun onStart() {
@@ -178,7 +180,7 @@ class MapFragment : Fragment() {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-    //ставим инсеты,чтоб за систембары не залазило
+    //ставим инсеты,чтоб за систембары не заползало
     private fun setInsets(view: View) {
         ViewCompat.setOnApplyWindowInsetsListener(view) { _, insets ->
             val systemBarInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars())

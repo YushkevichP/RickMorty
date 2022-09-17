@@ -1,6 +1,7 @@
 package com.example.hm7_cleanarchitecture.fragments
 
 import android.annotation.SuppressLint
+//import android.app.Fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -82,19 +83,7 @@ class ListFragment : Fragment() {
             }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         with(binding) {
-//            toolbar.setOnMenuItemClickListener {
-//                when (it.itemId) {
-//                    R.id.search_users -> {
-//                        findNavController().navigate(
-//                            ListFragmentDirections.toSearchFragment()
-//                        )
-//                        true
-//                    }
-//                    else -> {
-//                        false
-//                    }
-//                }
-//            }
+
             val layoutManager = LinearLayoutManager(requireContext())
             recyclerView.layoutManager = layoutManager
             recyclerView.adapter = personAdapter

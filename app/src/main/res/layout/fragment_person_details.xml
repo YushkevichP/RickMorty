@@ -28,14 +28,6 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-
-<!--        <androidx.appcompat.widget.Toolbar-->
-<!--            android:id="@+id/toolbar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:title="Rick and Morty"-->
-<!--            android:background="?colorPrimary"/>-->
-
         <ImageView
             android:id="@+id/image_user_fragment"
             android:layout_width="match_parent"
