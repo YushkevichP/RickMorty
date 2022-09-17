@@ -193,15 +193,4 @@ class MapFragment : Fragment() {
             WindowInsetsCompat.CONSUMED
         }
     }
-
-//    private fun setInsetsFotBar() {
-//        with(binding) {
-//            ViewCompat.setOnApplyWindowInsetsListener(appBar) { _, insets ->
-//                appBar.updatePadding(
-//                    top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top
-//                )
-//                WindowInsetsCompat.CONSUMED
-//            }
-//        }
-//    }
 }

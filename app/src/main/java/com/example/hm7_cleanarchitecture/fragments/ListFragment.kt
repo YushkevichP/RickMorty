@@ -83,19 +83,7 @@ class ListFragment : Fragment() {
             }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         with(binding) {
-//            toolbar.setOnMenuItemClickListener {
-//                when (it.itemId) {
-//                    R.id.search_users -> {
-//                        findNavController().navigate(
-//                            ListFragmentDirections.toSearchFragment()
-//                        )
-//                        true
-//                    }
-//                    else -> {
-//                        false
-//                    }
-//                }
-//            }
+
             val layoutManager = LinearLayoutManager(requireContext())
             recyclerView.layoutManager = layoutManager
             recyclerView.adapter = personAdapter
